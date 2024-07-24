@@ -1,25 +1,30 @@
 import { useState } from "react";
 import AddUser from "../components/AddUser";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [open, setOpen] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
   async function handleLogin() {
     try {
-      const response = await axios.post('https://dummyjson.com/user/login', {
+      const response = await axios.post("https://dummyjson.com/user/login", {
         username: username,
         password: password,
-        expiresInMins: 30
+        expiresInMins: 30,
       });
-      console.log('Login successful:', response.data.token);
-      localStorage.setItem('accessToken', response.data.token);
+      console.log("Login successful:", response.data.token);
+      localStorage.setItem("accessToken", response.data.token);
+      if (response.data.token) {
+        navigate("/tables");
+      }
 
       // Handle successful login response here
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.error("Error logging in:", error);
       // Handle login error here
     }
   }
