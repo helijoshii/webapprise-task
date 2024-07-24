@@ -6,11 +6,11 @@ WebApprise is an application that checks if the user is authenticated and then l
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/project-name.git
+    git clone https://github.com/helijoshii/Webappriseprj.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd project-name
+    cd Webappriseprj
     ```
 3. Install dependencies:
     ```bash
